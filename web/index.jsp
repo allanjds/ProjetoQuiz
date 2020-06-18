@@ -9,8 +9,11 @@
         String password = request.getParameter("user.password");
 
         try {
-            Usuario.buscaUsuario(login, password);
-            response.sendRedirect(request.getRequestURI());
+            Usuario user = Usuario.buscaUsuario(login, password);
+            session.setAttribute("user.name", user.getName());
+            session.setAttribute("user.login", user.getLogin());
+
+            response.sendRedirect("/restricted/home.jsp");
         } catch (Exception e) {
             DbConfig.exceptionMessage = e.getMessage();
         }
@@ -23,7 +26,10 @@
 
         try {
             Usuario.addUsuario(name, login, password);
-            response.sendRedirect(request.getRequestURI());
+            response.sendRedirect("/restricted/home.jsp");
+
+            session.setAttribute("user.name", name);
+            session.setAttribute("user.login", login);
         } catch (Exception e) {
             DbConfig.exceptionMessage = e.getMessage();
         }
