@@ -9,7 +9,7 @@ import javax.servlet.ServletContextListener;
 
 public class DbConfig implements ServletContextListener {
 
-    public static final String URL = "jdbc:sqlite:C:\\Users\\allan\\Documents\\NetBeansProjects\\ProjetoQuiz\\quiz.db";
+    public static final String URL = "jjdbc:sqlite:C:\\ProjetoQuiz\\quiz.db";
     public static final String CLASS_NAME = "org.sqlite.JDBC";
 
     public static String exceptionMessage = null;
