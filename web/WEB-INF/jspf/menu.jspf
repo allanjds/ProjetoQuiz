@@ -3,7 +3,10 @@
 <%@page import="model.Usuario"%>
 <%@ page pageEncoding="UTF-8" %>
 
+<h2 class="text-center">Quiz</h2>
+
 <%if (DbConfig.exceptionMessage != null) {%>
 <h3 style="color:red"><%= DbConfig.exceptionMessage%></h3>
 <%}%>
+
 <hr/>
