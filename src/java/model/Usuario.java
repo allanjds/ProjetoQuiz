@@ -57,6 +57,31 @@ public class Usuario {
 
     }
 
+    public static Usuario buscaUsuario(String login, String password) throws Exception {
+        Usuario user = null;
+
+        Class.forName(DbConfig.CLASS_NAME);
+        Connection con = DriverManager.getConnection(DbConfig.URL);
+
+        String SQL = "SELECT * FROM users WHERE login=? AND password_hash=?";
+        PreparedStatement stmt = con.prepareStatement(SQL);
+
+        stmt.setString(1, login);
+        stmt.setLong(2, password.hashCode());
+
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            user = new Usuario(rs.getString("name"), rs.getString("login"));
+        }
+
+        rs.close();
+        stmt.close();
+        con.close();
+
+        return user;
+    }
+
     public String getLogin() {
         return login;
     }

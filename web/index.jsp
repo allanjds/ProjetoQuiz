@@ -8,7 +8,8 @@
         String password = request.getParameter("user.password");
 
         try {
-
+            Usuario.buscaUsuario(login, password);
+            response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
             DbConfig.exceptionMessage = e.getMessage();
         }
