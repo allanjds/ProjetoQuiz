@@ -1,21 +1,30 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    if (request.getParameter("session.login") != null) {
+    Exception requestException = null;
+
+    if (request.getParameter("login") != null) {
         String login = request.getParameter("user.login");
         String password = request.getParameter("user.password");
 
         try {
 
         } catch (Exception e) {
-
+            DbConfig.exceptionMessage = e.getMessage();
         }
     }
 
-    if (request.getParameter("session.cadastro") != null) {
-        String name = request.getParameter("user.name");
-        String login = request.getParameter("user.login");
-        String password = request.getParameter("user.password");
+    if (request.getParameter("cadastro") != null) {
+        String name = request.getParameter("cadastro.name");
+        String login = request.getParameter("cadastro.login");
+        String password = request.getParameter("cadastro.password");
+
+        try {
+            Usuario.addUsuario(name, login, password);
+            response.sendRedirect(request.getRequestURI());
+        } catch (Exception e) {
+            DbConfig.exceptionMessage = e.getMessage();
+        }
     }
 %>
 
@@ -43,30 +52,30 @@
                             <label>Senha</label>
                             <input type="password" class="form-control" name="user.password" >
                         </div>
-                        <button type="submit" name="session.login" class="btn btn-primary">Entrar</button>
+                        <button type="submit" name="login" class="btn btn-primary">Entrar</button>
 
                     </form>
                 </div>
 
                 <div class="col">
-                    <form action="cadastro">
+                    <form method="post">
 
                         <div class="form-group">
                             <label>Nome Completo</label>
-                            <input type="text" class="form-control" name="user.name" >
+                            <input type="text" class="form-control" name="cadastro.name" >
                         </div>
 
                         <div class="form-group">
                             <label>Usuário</label>
-                            <input type="text" class="form-control" name="user.login" >
+                            <input type="text" class="form-control" name="cadastro.login" >
                         </div>
 
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" name="user.password" >
+                            <input type="password" class="form-control" name="cadastro.password" >
                         </div>
 
-                        <button type="submit" name="session.cadastro" class="btn btn-primary">Cadastrar</button>
+                        <button type="submit" name="cadastro" class="btn btn-primary">Cadastrar</button>
                     </form>
                 </div>
             </div>

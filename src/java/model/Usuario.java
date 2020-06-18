@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import database.DbConfig;
+import java.sql.PreparedStatement;
 
 public class Usuario {
 
@@ -35,6 +36,25 @@ public class Usuario {
         con.close();
 
         return list;
+    }
+
+    public static void addUsuario(String name, String login, String password) throws Exception {
+        Class.forName(DbConfig.CLASS_NAME);
+
+        Connection con = DriverManager.getConnection(DbConfig.URL);
+        String SQL = "INSERT INTO users(name, login, password_hash) VALUES(?,?,?)";
+
+        PreparedStatement stmt = con.prepareStatement(SQL);
+
+        stmt.setString(1, name);
+        stmt.setString(2, login);
+        stmt.setLong(3, password.hashCode());
+
+        stmt.execute();
+
+        stmt.close();
+        con.close();
+
     }
 
     public String getLogin() {
