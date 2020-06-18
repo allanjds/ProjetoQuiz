@@ -1,0 +1,9 @@
+<%-- any content can be specified here e.g.: --%>
+<%@page import="database.DbConfig"%>
+<%@page import="model.Usuario"%>
+<%@ page pageEncoding="UTF-8" %>
+
+<%if (DbConfig.exceptionMessage != null) {%>
+<h3 style="color:red"><%= DbConfig.exceptionMessage%></h3>
+<%}%>
+<hr/>

@@ -1,25 +1,38 @@
-
 <%@page import="java.util.ArrayList"%>
-<%@page import="db.DbConfig"%>
 <%@page import="model.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    ArrayList<Usuario> list = new ArrayList<>();
+
+    try {
+        list = Usuario.listaUsuarios();
+    } catch (Exception ex) {
+        DbConfig.exceptionMessage = ex.getMessage();
+    }
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Index</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h2>Index</h2>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
 
-        <hr/>
         <table border="1">
             <tr>
-                <th>Usuário</th>
+                <th>Nome do usuário</th>
+                <th>Login</th>
             </tr>
+            <%for (Usuario u : list) {%>
             <tr>
-                <td>Teste</td>
+                <td><%= u.getName()%></td>
+                <td><%= u.getLogin()%></td>
             </tr>
+            <%}%>
         </table>
+
+
     </body>
 </html>
