@@ -2,6 +2,7 @@
 
 <%
     Exception requestException = null;
+    DbConfig.exceptionMessage = "";
 
     if (request.getParameter("login") != null) {
         String login = request.getParameter("user.login");
