@@ -20,7 +20,7 @@ public class Questao {
     private String enunciated;
     private String answer;
 
-    public static ArrayList<Questao> getList()throws Exception{
+    public static ArrayList<Questao> listaQuestoes()throws Exception{
           ArrayList<Questao> list = new ArrayList<>();
           Class.forName(DbConfig.CLASS_NAME);
           Connection con = DriverManager.getConnection(DbConfig.URL);
