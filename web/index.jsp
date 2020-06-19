@@ -13,7 +13,7 @@
             session.setAttribute("user.name", user.getName());
             session.setAttribute("user.login", user.getLogin());
 
-            response.sendRedirect("/restricted/home.jsp");
+            response.sendRedirect("home.jsp");
         } catch (Exception e) {
             DbConfig.exceptionMessage = e.getMessage();
         }
@@ -26,7 +26,7 @@
 
         try {
             Usuario.addUsuario(name, login, password);
-            response.sendRedirect("/restricted/home.jsp");
+            response.sendRedirect("home.jsp");
 
             session.setAttribute("user.name", name);
             session.setAttribute("user.login", login);
