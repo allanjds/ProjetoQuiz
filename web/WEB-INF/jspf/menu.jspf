@@ -30,19 +30,18 @@
 <h2 class="text-center">Quiz</h2>
 
 <%if(session.getAttribute("user.login")==null){%>
-    <form method="post">
+    <form method="post" action="home.jsp">
         Usuário: <input type="text" name="user.login"/>
         Password: <input type="password" name="user.password"/>
-        <input type="submit" value="LogIn" name="session.login"/>
+        <input type="submit" value="Entrar" name="session.login"/>
     </form>
     <%if(loginError != null){%>
     <div style="color:red"><%= loginError %></div>
     <%}%>
 <%}else{%>
-    <form>
-        <a href="<%=request.getContextPath()%>/home.jsp">INÍCIO</a>
-        || Bem vindo, <b><%= session.getAttribute("user.name") %></b>
-        <input type="submit" value="LogOff" name="session.logoff"/>
+    <form action="index.jsp">
+        || Bem vindo, <b><a href="<%=request.getContextPath()%>/home.jsp"><%= session.getAttribute("user.name") %></a></b>
+        <input type="submit" value="Sair" name="session.logoff"/>
     </form>
 <%}%>
 

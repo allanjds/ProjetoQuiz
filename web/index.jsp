@@ -1,3 +1,5 @@
+<%@page import="model.Usuario"%>
+<%@page import="database.DbConfig"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -44,7 +46,8 @@
         <title>Index</title>
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/menu.jspf" %>
+<%@include file="WEB-INF/jspf/menu.jspf" %>
+
 
                 <div class="col">
                     <form method="post">
@@ -67,7 +70,9 @@
                         <button type="submit" name="cadastro" class="btn btn-primary">Cadastrar</button>
                     </form>
                 </div>
+            </div>
 
+        </div>
 
 <%@include file="WEB-INF/jspf/footer.jspf" %>
 
