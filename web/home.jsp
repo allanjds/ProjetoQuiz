@@ -6,6 +6,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h1>Hello World!</h1>
         <h2> Bem vindo <%=session.getAttribute("user.login")%> </h2>
     </body>
