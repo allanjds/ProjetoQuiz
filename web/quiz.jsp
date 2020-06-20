@@ -14,4 +14,11 @@
     <body>
         <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h2>Teste seus conhecimentos</h2>
+       
+        <hr/>
+        
+        
+        <a href="home.jsp">Voltar</a>
 
+</body>
+</html>

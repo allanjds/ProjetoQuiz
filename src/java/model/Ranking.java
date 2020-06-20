@@ -78,7 +78,6 @@ public class Ranking {
             ranks = new ArrayList<>();
             ranks.add(new Ranking("Anna", 10.0, 0));
         }
-
         return ranks;
     }
 }
