@@ -1,16 +1,17 @@
+<%-- 
+    Document   : quiz
+    Created on : 20/06/2020, 13:30:19
+    Author     : Anna
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Quiz - Teste seus conhecimentos</title>
     </head>
     <body>
         <%@include file="WEB-INF/jspf/menu.jspf" %>
-        <h2> Bem vindo <%=session.getAttribute("user.login")%> </h2>
-        
-        
-        <h2>Clique <a href="quiz.jsp">aqui</a> para iniciar seu teste de conhecimento</h2>
-    </body>
-</html>
+        <h2>Teste seus conhecimentos</h2>
 

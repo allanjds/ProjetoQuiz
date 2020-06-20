@@ -27,7 +27,7 @@
     }
 %>
 
-<h2 class="text-center">Quiz</h2>
+<h1 class="text-center">Quiz</h1>
 
 <%if(session.getAttribute("user.login")==null){%>
     <form method="post" action="home.jsp">
