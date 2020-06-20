@@ -12,10 +12,10 @@
 
 <footer id="f1">
     <h1>Integrantes</h1>
-        <ul>
-            <li>Allan</li>
+    <ul style="list-style: none;">
+            <li>Allan Jose da Silva</li>
             <li>Anna Carolina Menezes Rodrigues Hermenegildo</li>
-            <li>Gabriel</li>
+            <li>Gabriel Alejandro Zelada de Souza</li>
         </ul>
     <br/>
     Fatec Praia Grande, 2020

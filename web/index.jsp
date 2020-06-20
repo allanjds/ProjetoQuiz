@@ -47,8 +47,6 @@
     </head>
     <body>
 <%@include file="WEB-INF/jspf/menu.jspf" %>
-
-
                 <div class="col">
                     <form method="post">
 
@@ -70,9 +68,6 @@
                         <button type="submit" name="cadastro" class="btn btn-primary">Cadastrar</button>
                     </form>
                 </div>
-            </div>
-
-        </div>
 
 <%@include file="WEB-INF/jspf/footer.jspf" %>
 
