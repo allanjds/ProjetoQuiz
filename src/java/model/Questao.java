@@ -18,7 +18,6 @@ import java.util.ArrayList;
  */
 public class Questao {
     private String enunciated;
-    private String answer;
 
     public static ArrayList<Questao> listaQuestoes()throws Exception{
           ArrayList<Questao> list = new ArrayList<>();
@@ -27,7 +26,7 @@ public class Questao {
           Statement stmt = con.createStatement();
           ResultSet rs = stmt.executeQuery("SELECT * from questions");
           while(rs.next()){
-              list.add(new Questao(rs.getString("enunciated"), rs.getString("answer")));
+              list.add(new Questao(rs.getString("enunciated")));
           }
           rs.close();
           stmt.close();
@@ -35,9 +34,8 @@ public class Questao {
           return list;
     }
 
-    public Questao(String enunciated, String answer) {
+    public Questao(String enunciated) {
         this.enunciated = enunciated;
-        this.answer = answer;
     }
 
     public String getEnunciated() {
@@ -48,12 +46,5 @@ public class Questao {
         this.enunciated = enunciated;
     }
 
-    public String getAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(String answer) {
-        this.answer = answer;
-    }
     
 }

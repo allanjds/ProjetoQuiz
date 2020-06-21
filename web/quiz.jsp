@@ -4,8 +4,12 @@
     Author     : Anna
 --%>
 
+<%@page import="model.Questao"%>
+<%@page import="database.DbConfig"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -16,7 +20,16 @@
         <h2>Teste seus conhecimentos</h2>
        
         <hr/>
-        
+
+        <h1>prova</h1>
+        <h2>Teste</h2>
+
+        <form action="home.jsp">
+           
+ 
+        </form>
+
+
         
         <a href="home.jsp">Voltar</a>
 
