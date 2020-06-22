@@ -15,7 +15,7 @@
             }else{
                 session.setAttribute("user.login", login);
                 session.setAttribute("user.name", user.getName());
-                response.sendRedirect(request.getRequestURI());
+                response.sendRedirect("home.jsp");
             }
         }catch(Exception ex){
             loginError = "Error: " + ex.getMessage();
@@ -23,14 +23,14 @@
     }else if(request.getParameter("session.logoff")!=null){
         session.removeAttribute("user.login");
         session.removeAttribute("user.name");
-        response.sendRedirect(request.getRequestURI());
+        response.sendRedirect("index.jsp");
     }
 %>
 
 <h1 class="text-center">Quiz</h1>
 
 <%if(session.getAttribute("user.login")==null){%>
-    <form method="post" action="home.jsp">
+    <form method="post">
         Usuário: <input type="text" name="user.login"/>
         Password: <input type="password" name="user.password"/>
         <input type="submit" value="Entrar" name="session.login"/>
@@ -39,8 +39,8 @@
     <div style="color:red"><%= loginError %></div>
     <%}%>
 <%}else{%>
-    <form action="index.jsp">
-        || Bem vindo, <b><a href="<%=request.getContextPath()%>/home.jsp"><%= session.getAttribute("user.name") %></a></b>
+    <form>
+        || Bem vindo, <b><%= session.getAttribute("user.name") %></b>
         <input type="submit" value="Sair" name="session.logoff"/>
     </form>
 <%}%>
