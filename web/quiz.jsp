@@ -4,41 +4,53 @@
     Author     : Anna
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="model.Questao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    int pergunta = 1;
+    int numero = 0;
+    ArrayList<Questao> questoesList = new ArrayList<>();
+    questoesList = Questao.listaQuestoes();
+%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@include file="WEB-INF/jspf/header.jspf" %>
         <title>Quiz - Teste seus conhecimentos</title>
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/menu.jspf" %>
-        <h2>Teste seus conhecimentos</h2>
-        <hr/>
-         <div class="col">
-                    <form method="post">
+        <div class="container">
 
-                        <div class="form-group">
-                            <label>1. </label>
-                            <input type="text" class="form-control" name="answer1" >
-                        </div>
+            <%@include file="WEB-INF/jspf/menu.jspf" %>
+            <h2 class="text-center">Teste seus conhecimentos</h2>
 
-                        <div class="form-group">
-                            <label>2. </label>
-                            <input type="text" class="form-control" name="answer2" >
-                        </div>
+            <hr/>
 
-                        <div class="form-group">
-                            <label>3. </label>
-                            <input type="text" class="form-control" name="answer3" >
-                        </div>
 
-                        <button type="submit" name="result" class="btn btn-primary">Enviar</button>
-                    </form>
-                </div>
-        
+            <%for (Questao q : questoesList) {%>
+            <p><%= q.getEnunciated()%></p>
+            <input name="pergunta_<%=pergunta%>" type="radio" value=<%=numero = q.geraNumeroRandom()%>>
+            <label for="<%=numero%>"><%=numero%></label><br>
+
+            <input name="pergunta_<%=pergunta%>" type="radio" value=<%=numero = q.geraNumeroRandom()%>>
+            <label for="<%=numero%>"><%=numero%></label><br>
+
+            <input name="pergunta_<%=pergunta%>" type="radio" value=<%=numero = q.geraNumeroRandom()%>>
+            <label for="<%=numero%>"><%=numero%></label><br>
+
+            <input name="pergunta_<%=pergunta%>" type="radio" value=<%=numero = q.geraNumeroRandom()%>>
+            <label for="<%=numero%>"><%=numero%></label><br>
+
+            <br>  
+            <hr/>
+            <% pergunta = pergunta + 1;
+                }%>
+
+        </div>
+
+
         <a href="home.jsp">Voltar</a>
-
-</body>
+    </body>
 </html>

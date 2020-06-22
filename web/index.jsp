@@ -46,30 +46,30 @@
         <title>Index</title>
     </head>
     <body>
-<%@include file="WEB-INF/jspf/menu.jspf" %>
-                <div class="col">
-                    <form method="post">
+        <%@include file="WEB-INF/jspf/menu.jspf" %>
+        <div class="col">
+            <form method="post">
 
-                        <div class="form-group">
-                            <label>Nome Completo</label>
-                            <input type="text" class="form-control" name="cadastro.name" >
-                        </div>
-
-                        <div class="form-group">
-                            <label>Usuário</label>
-                            <input type="text" class="form-control" name="cadastro.login" >
-                        </div>
-
-                        <div class="form-group">
-                            <label>Password</label>
-                            <input type="password" class="form-control" name="cadastro.password" >
-                        </div>
-
-                        <button type="submit" name="cadastro" class="btn btn-primary">Cadastrar</button>
-                    </form>
+                <div class="form-group">
+                    <label>Nome Completo</label>
+                    <input type="text" class="form-control" name="cadastro.name" >
                 </div>
 
-<%@include file="WEB-INF/jspf/footer.jspf" %>
+                <div class="form-group">
+                    <label>Usuário</label>
+                    <input type="text" class="form-control" name="cadastro.login" >
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="cadastro.password" >
+                </div>
+
+                <button type="submit" name="cadastro" class="btn btn-primary">Cadastrar</button>
+            </form>
+        </div>
+
+        <%@include file="WEB-INF/jspf/footer.jspf" %>
 
     </body>
 </html>

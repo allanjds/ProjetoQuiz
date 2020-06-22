@@ -10,7 +10,7 @@ import model.Questao;
 
 public class DbConfig implements ServletContextListener {
 
-    public static final String URL = "jdbc:sqlite:C:\\ProjetoQuiz\\quiz.db";
+    public static final String URL = "jdbc:sqlite:C:\\Users\\fcamara\\Documents\\NetBeansProjects\\ProjetoQuiz\\quiz.db"; 
     public static final String CLASS_NAME = "org.sqlite.JDBC";
 
     public static String exceptionMessage = null;
