@@ -5,11 +5,8 @@
 --%>
 
 <%@page import="model.Questao"%>
-<%@page import="database.DbConfig"%>
-<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,18 +15,28 @@
     <body>
         <%@include file="WEB-INF/jspf/menu.jspf" %>
         <h2>Teste seus conhecimentos</h2>
-       
         <hr/>
+         <div class="col">
+                    <form method="post">
 
-        <h1>prova</h1>
-        <h2>Teste</h2>
+                        <div class="form-group">
+                            <label>1. </label>
+                            <input type="text" class="form-control" name="answer1" >
+                        </div>
 
-        <form action="home.jsp">
-           
- 
-        </form>
+                        <div class="form-group">
+                            <label>2. </label>
+                            <input type="text" class="form-control" name="answer2" >
+                        </div>
 
+                        <div class="form-group">
+                            <label>3. </label>
+                            <input type="text" class="form-control" name="answer3" >
+                        </div>
 
+                        <button type="submit" name="result" class="btn btn-primary">Enviar</button>
+                    </form>
+                </div>
         
         <a href="home.jsp">Voltar</a>
 
