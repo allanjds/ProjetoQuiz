@@ -39,6 +39,13 @@ public class DbConfig implements ServletContextListener {
                     + "answer VARCHAR(100) NOT NULL"
                     + ")";
             stmt.executeUpdate(SQL);
+            
+            step = "Criando tabela de resultado";
+            SQL = "CREATE TABLE IF NOT EXISTS results ("
+                    + "user VARCHAR(50) UNIQUE NOT NULL,"
+                    + "result INTEGER NOT NULL"
+                    + ")";
+            stmt.executeUpdate(SQL);
 
             if (Usuario.listaUsuarios().isEmpty()) {
                 step = "Inserindo usuário administrador";
