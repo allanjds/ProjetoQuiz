@@ -4,6 +4,7 @@
     Author     : Anna
 --%>
 
+<%@page import="db.Resultado"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="db.Questao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -35,7 +36,14 @@
 
             // inserir no banco de dados, resultado
         }
+        try {
+                Resultado.addResultado(usuario, resultado);
+            } catch (Exception e) {
+                DbConfig.exceptionMessage = e.getMessage();
+            }
     }
+
+
 %>
 <!DOCTYPE html>
 <html>
