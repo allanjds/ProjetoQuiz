@@ -1,11 +1,11 @@
-package model;
+package db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
-import database.DbConfig;
+import web.DbConfig;
 import java.sql.PreparedStatement;
 
 public class Usuario {

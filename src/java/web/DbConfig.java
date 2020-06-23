@@ -1,12 +1,12 @@
-package database;
+package web;
 
-import model.Usuario;
+import db.Usuario;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
-import model.Questao;
+import db.Questao;
 
 public class DbConfig implements ServletContextListener {
 

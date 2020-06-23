@@ -1,5 +1,5 @@
-<%@page import="model.Usuario"%>
-<%@page import="database.DbConfig"%>
+<%@page import="db.Usuario"%>
+<%@page import="web.DbConfig"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%

@@ -1,6 +1,6 @@
 <%-- any content can be specified here e.g.: --%>
-<%@page import="database.DbConfig"%>
-<%@page import="model.Usuario"%>
+<%@page import="web.DbConfig"%>
+<%@page import="db.Usuario"%>
 <%@ page pageEncoding="UTF-8" %>
 
 <%

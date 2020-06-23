@@ -3,7 +3,7 @@
     Created on : 18/06/2020, 23:30:19
     Author     : Anna
 --%>
-<%@page import="model.Ranking"%>
+<%@page import="db.Ranking"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

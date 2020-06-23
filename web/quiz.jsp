@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.util.ArrayList"%>
-<%@page import="model.Questao"%>
+<%@page import="db.Questao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
     int pergunta = 0;
@@ -62,7 +62,7 @@
 
                 <% for(Questao q: questoesList) {%>
                 <p><%=q.getEnunciated()%></p>
-                <input name= "pergunta_<%= pergunta%>" type= "radio" value=<%=numero=q.geraNumeroRandom()%>>
+                <input name= "pergunta_<%=pergunta%>" type= "radio" value=<%=numero=q.geraNumeroRandom()%>>
                 <label for="<%=numero%>"> <%=numero%></label> <br>
 
                 <input name= "pergunta_<%=pergunta%>" type="radio" value=<%=numero=q.geraNumeroRandom()%>>
