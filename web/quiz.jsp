@@ -43,6 +43,9 @@
             <input name="pergunta_<%=pergunta%>" type="radio" value=<%=numero = q.geraNumeroRandom()%>>
             <label for="<%=numero%>"><%=numero%></label><br>
 
+            <input name="pergunta_<%=pergunta%>" type="radio" value=<%= q.getAnswer()%>>
+            <label for="<%= q.getAnswer()%>"><%= q.getAnswer()%></label><br>
+
             <br>  
             <hr/>
             <% pergunta = pergunta + 1;
