@@ -47,7 +47,7 @@ public class Questao {
     }
 
     public static int geraNumeroRandom() {
-        return (int) (Math.random() * ((50 - 0) + 1)) + 0;
+        return (int) (Math.random() * ((150 - 0) + 1)) + 0;
     }
 
     public String getEnunciated() {
