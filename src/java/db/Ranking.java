@@ -5,79 +5,95 @@
  */
 package db;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Collections;
+import web.DbConfig;
+import db.Resultado;
+import static java.lang.String.valueOf;
+import java.sql.PreparedStatement;
 
 /**
  *
  * @author Anna
  */
 public class Ranking {
-    
-    private static ArrayList<Ranking> ranks = null;
-
-    private String user;
-    private double result;
-    private int id;
-
-    public Ranking(String user, double result, int id) {
-        this.user = user;
-        this.result = result;
-        this.id = id;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public double getResult() {
-        return result;
-    }
-
-    public void setResult(double result) {
-        this.result = result;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public static ArrayList<Ranking> orderByResult(ArrayList<Ranking> rankings) {
-        Collections.sort(rankings, (Ranking r1, Ranking r2) -> {
-            if (r1.getResult() > r2.getResult()) {
-                return -1;
-            } else if (r1.getResult() == r2.getResult()) {
-                return 0;
-            } else {
-                return 1;
-            }
-        });
-        return rankings;
-    }
-
-    public static ArrayList<Ranking> orderById(ArrayList<Ranking> rankings) {
-        Collections.sort(rankings, (Ranking r1, Ranking r2) -> {
-            if (r1.getId() < r2.getId()) {
-                return 1;
-            } else {
-                return -1;
-            }
-        });
-        return rankings;
-    }
-  public static ArrayList<Ranking> getRanking() {
-        if (ranks == null) {
-            ranks = new ArrayList<>();
-            ranks.add(new Ranking("Anna", 10.0, 0));
+      public static ArrayList<Ranking> getResult() throws SQLException{
+        ArrayList<Ranking> listaRanking = new ArrayList<>();
+       
+       String query = "SELECT TOP 10 FROM result order by desc";
+      
+       Connection con = DriverManager.getConnection(DbConfig.URL);
+       PreparedStatement stmt = con.prepareStatement(query);
+       
+       ResultSet rs = stmt.executeQuery();
+       
+         while (rs.next()) {
+            Ranking ranking = new Ranking();
+            ranking.setResult(rs.getInt("result"));
+            
+            listaRanking.add(ranking);
         }
-        return ranks;
+        
+        rs.close();
+        stmt.close();
+        con.close();
+        
+        return listaRanking;
     }
-}
+     public static ArrayList<Ranking> getUltimosTestesRealizados() throws ClassNotFoundException, SQLException{
+       ArrayList<Ranking> listaRanking = new ArrayList<>();
+       
+       String query = "SELECT * from results "
+                    + " order by results desc LIMIT 10;";
+      
+      
+       Connection con = DriverManager.getConnection(DbConfig.URL);
+       PreparedStatement stmt = con.prepareStatement(query);
+       
+       ResultSet rs = stmt.executeQuery();
+       
+        while(rs.next()){
+            Ranking ranking = new Ranking();
+            
+            ranking.setResult(rs.getInt("result"));
+            
+            listaRanking.add(ranking);
+        }
+        
+        rs.close();
+        stmt.close();
+        con.close();
+        
+        return listaRanking;
+    }
+     
+    public static ArrayList<Ranking> getUltimosTestesRealizadosUsuario(String login) throws ClassNotFoundException, SQLException{
+       ArrayList<Ranking> listaRanking = new ArrayList<>();
+       
+       String query = "SELECT * FROM results where login = ? order by result desc LIMIT 10";
+      
+       Connection con = DriverManager.getConnection(DbConfig.URL);
+       PreparedStatement stmt = con.prepareStatement(query);
+       
+       ResultSet rs = stmt.executeQuery(login);
+       
+        while(rs.next()){
+            Ranking ranking = new Ranking();
+            ranking.setUser(valueOf(rs.getInt("user")));
+            ranking.setResultado(valueOf(rs.getInt("result")));
+            
+            listaRanking.add(ranking);
+        }
+        
+        rs.close();
+        stmt.close();
+        con.close();
+        
+        return listaRanking;
+    }
+    
