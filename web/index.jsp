@@ -85,8 +85,8 @@
                             <input type="text" class="form-control" name="login.user" >
                         </div>
                         <div class="form-group">
-                            <label>Usuário</label>
-                            <input type="text" class="form-control" name="login.password" >
+                            <label>Senha</label>
+                            <input type="password" class="form-control" name="login.password" >
                         </div>
 
 
