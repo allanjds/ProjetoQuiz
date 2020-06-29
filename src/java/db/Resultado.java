@@ -18,14 +18,17 @@ import web.DbConfig;
  * @author Gabriel
  */
 public class Resultado {
+
     private String user;
     private int result;
+    private String date;
 
-    public Resultado(String user, int result) {
+    public Resultado(String user, int result, String date) {
         this.user = user;
         this.result = result;
+        this.date = date;
     }
-    
+
     public static ArrayList<Resultado> listaResultados() throws Exception {
         ArrayList<Resultado> list = new ArrayList<>();
 
@@ -33,10 +36,14 @@ public class Resultado {
 
         Connection con = DriverManager.getConnection(DbConfig.URL);
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * from results");
+        ResultSet rs = stmt.executeQuery("SELECT * from results order by date ASC");
 
         while (rs.next()) {
-            list.add(new Resultado(rs.getString("user"), rs.getInt("result")));
+            list.add(new Resultado(
+                    rs.getString("user"),
+                    rs.getInt("result"),
+                    rs.getString("date")
+            ));
         }
 
         rs.close();
@@ -45,7 +52,31 @@ public class Resultado {
 
         return list;
     }
-    
+
+    public static ArrayList<Resultado> listaTop10() throws Exception {
+        ArrayList<Resultado> list = new ArrayList<>();
+
+        Class.forName(DbConfig.CLASS_NAME);
+
+        Connection con = DriverManager.getConnection(DbConfig.URL);
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT user, result, date FROM results ORDER BY result DESC LIMIT 10");
+
+        while (rs.next()) {
+            list.add(new Resultado(
+                    rs.getString("user"),
+                    rs.getInt("result"),
+                    rs.getString("date")
+            ));
+        }
+
+        rs.close();
+        stmt.close();
+        con.close();
+
+        return list;
+    }
+
     public static void addResultado(String user, int result) throws Exception {
         Class.forName(DbConfig.CLASS_NAME);
 
@@ -63,7 +94,7 @@ public class Resultado {
         con.close();
 
     }
-    
+
     public String getUser() {
         return user;
     }
@@ -79,6 +110,13 @@ public class Resultado {
     public void setResult(int result) {
         this.result = result;
     }
-    
-    
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
 }

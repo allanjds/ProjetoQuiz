@@ -6,10 +6,7 @@
 <%@page import="db.Resultado"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    ArrayList<Resultado> list = new ArrayList<>();
-    list = Resultado.listaResultados();
-%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,19 +25,31 @@
             <br>
             <div class="row">
                 <div class="col">
-                    <h3>Ultimos 10 realizados </h3>
+                    <h3 class="text-center">Ultimos 10 realizados </h3>
 
-                    <table>
-                        <% for (Resultado r : list) {%>
-                        <p><%=r.getUser()%></p>
-                        <p><%=r.getResult()%></p>
-                        <hr>
-                        <% }%>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Usuário</th>
+                                <th scope="col">Pontuação</th>
+                                <th scope="col">Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (Resultado r : Resultado.listaResultados()) {%>
+                            <tr>
+                                <td><%= r.getUser()%></td>
+                                <td><%= r.getResult()%></td>
+                                <td><%= r.getDate()%></td>
+                            </tr>
+                            <% }%>
+
+                        </tbody>
                     </table>
                 </div>
 
                 <div class="col">
-                    <h3>Top 10</h3>
+                    <h3 class="text-center">Top 10</h3>
                     <table>
                         <tbody>
                         </tbody>
