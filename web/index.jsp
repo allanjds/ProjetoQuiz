@@ -69,6 +69,12 @@
         <h2 class="text-center">Bem-Vindo</h2> 
         <br>
 
+        <%if (DbConfig.exceptionMessage != null) {%>
+        <h3 class="text-red text-center" style="color:red"><%= DbConfig.exceptionMessage%></h3>
+        <br>
+        <%}%>
+
+
         <div class="container">
             <div class="row">
 
