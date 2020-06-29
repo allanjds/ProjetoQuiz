@@ -9,22 +9,22 @@
 <%@page import="db.Questao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    int pergunta = 0;
     int numero = 0;
+
+    int pergunta = 0;
     int resultado = -1;
-    
-    ArrayList<Questao>questoesList = new ArrayList<>();
+
+    ArrayList<Questao> questoesList = new ArrayList<>();
     questoesList = Questao.listaQuestoes();
-    
+
     if (request.getParameter("salva_quiz") != null) {
-        String usuario = request.getParameter("usuario");
         resultado = 0;
 
-        int qntQuestoes = questoesList.size();
+        String usuario = request.getParameter("usuario");
 
-        for (int i = 0; i < qntQuestoes; i++) {
+        for (int i = 0; i < questoesList.size(); i++) {
             String respostaCerta = questoesList.get(i).getAnswer();
-            String respostaUsuario = request.getParameter("pergunta_" + pergunta);
+            String respostaUsuario = request.getParameter("pergunta_" + i);
 
             if (respostaUsuario != null) {
                 if (respostaUsuario.equals(respostaCerta)) {
@@ -33,14 +33,14 @@
             }
 
             pergunta++;
-
-            // inserir no banco de dados, resultado
         }
+
         try {
-                Resultado.addResultado(usuario, resultado);
-            } catch (Exception e) {
-                DbConfig.exceptionMessage = e.getMessage();
-            }
+            Resultado.addResultado(usuario, resultado);
+            pergunta = 0;
+        } catch (Exception e) {
+            DbConfig.exceptionMessage = e.getMessage();
+        }
     }
 
 
@@ -59,43 +59,47 @@
             <h2 class="text-center">Teste seus conhecimentos</h2>
 
             <hr/>
-            
-            <% if (resultado> -1) {%>
+
+            <% if (resultado > -1) {%>
             <h2> Resultado: <%=resultado%> </h2>
             <%}%>
 
             <form method = "post">
+                <input class="d-none" name="usuario" value="<%=session.getAttribute("user.name")%>" />
 
-                <input type = "hidden" name= "usuario" value= "<%=session.getAttribute("user.name")%>" />
-
-                <% for(Questao q: questoesList) {%>
+                <% for (Questao q : questoesList) {%>
                 <p><%=q.getEnunciated()%></p>
-                <input name= "pergunta_<%=pergunta%>" type= "radio" value=<%=numero=q.geraNumeroRandom()%>>
-                <label for="<%=numero%>"> <%=numero%></label> <br>
 
-                <input name= "pergunta_<%=pergunta%>" type="radio" value=<%=numero=q.geraNumeroRandom()%>>
-                <label for="<%=numero%>"> <%=numero%></label> <br>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name= "pergunta_<%=pergunta%>"  value="<%=numero = q.geraNumeroRandom()%>" >
+                    <label class="form-check-label" for="<%=numero%>">
+                        <%=numero%>
+                    </label>
+                </div>
 
-                <input name="pergunta_<%=pergunta%>" type= "radio" value= <%=numero=q.geraNumeroRandom()%>>
-                <label for="<%=numero%>"> <%=numero%> </label> <br>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name= "pergunta_<%=pergunta%>"  value="<%=q.getAnswer()%>" >
+                    <label class="form-check-label" for="<%=q.getAnswer()%>">
+                        <%=q.getAnswer()%>
+                    </label>
+                </div>
 
-                <input name= "pergunta_<%=pergunta%>" type= "radio" value= <%=numero=q.geraNumeroRandom()%>>
-                <label for="<%=numero%>"> <%=numero%> </label> <br>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name= "pergunta_<%=pergunta%>"  value="<%=numero = q.geraNumeroRandom()%>" >
+                    <label class="form-check-label" for="<%=numero%>">
+                        <%=numero%>
+                    </label>
+                </div>
 
-                <input name="pergunta_<%= pergunta%>" type="radio" value=<%=q.getAnswer()%>>
-                <label for="<%=q.getAnswer()%>"> <%=q.getAnswer()%> </label> <br> <br>
+                <br>
 
-                <br>  
-                <hr />
-                <%pergunta = pergunta + 1;
-                    }%>
+                <p class="d-none"><%=pergunta++%></p>
+
+                <% }%>
 
                 <button class= "btn btn-primary" name= "salva_quiz"> Enviar </button>
-
             </form>
         </div>
 
-
-        <a href="home.jsp">Voltar</a>
     </body>
 </html>

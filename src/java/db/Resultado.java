@@ -6,10 +6,12 @@
 package db;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import web.DbConfig;
 
@@ -36,7 +38,7 @@ public class Resultado {
 
         Connection con = DriverManager.getConnection(DbConfig.URL);
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * from results order by date ASC");
+        ResultSet rs = stmt.executeQuery("SELECT * from results order by date ASC LIMIT 10");
 
         while (rs.next()) {
             list.add(new Resultado(
@@ -129,12 +131,18 @@ public class Resultado {
         Class.forName(DbConfig.CLASS_NAME);
 
         Connection con = DriverManager.getConnection(DbConfig.URL);
-        String SQL = "INSERT INTO results(user, result) VALUES(?,?)";
+        String SQL = "INSERT INTO results VALUES(?,?,?)";
 
         PreparedStatement stmt = con.prepareStatement(SQL);
 
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date(System.currentTimeMillis());
+
+        String data = formatter.format(date);
+
         stmt.setString(1, user);
         stmt.setInt(2, result);
+        stmt.setString(3, data);
 
         stmt.execute();
 

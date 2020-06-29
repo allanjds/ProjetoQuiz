@@ -91,60 +91,60 @@ public class DbConfig implements ServletContextListener {
 
             if (Resultado.listaResultados().isEmpty()) {
                 step = "Inserindo resultados admin";
-                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-06');";
+                SQL = "INSERT INTO results VALUES('Administrador', 10, '2020-06-06');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-03');";
+                SQL = "INSERT INTO results VALUES('Administrador', 10, '2020-06-03');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 9, '2020-06-05');";
+                SQL = "INSERT INTO results VALUES('Administrador', 9, '2020-06-05');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 8, '2020-06-04');";
+                SQL = "INSERT INTO results VALUES('Administrador', 8, '2020-06-04');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-04');";
+                SQL = "INSERT INTO results VALUES('Administrador', 10, '2020-06-04');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-07');";
+                SQL = "INSERT INTO results VALUES('Administrador', 10, '2020-06-07');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 7, '2020-06-10');";
+                SQL = "INSERT INTO results VALUES('Administrador', 7, '2020-06-10');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 9, '2020-06-09');";
+                SQL = "INSERT INTO results VALUES('Administrador', 9, '2020-06-09');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 6, '2020-06-08');";
+                SQL = "INSERT INTO results VALUES('Administrador', 6, '2020-06-08');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-08');";
+                SQL = "INSERT INTO results VALUES('Administrador', 10, '2020-06-08');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 8, '2020-06-02');";
+                SQL = "INSERT INTO results VALUES('Administrador', 8, '2020-06-02');";
                 stmt.executeUpdate(SQL);
-                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-01');";
+                SQL = "INSERT INTO results VALUES('Administrador', 10, '2020-06-01');";
                 stmt.executeUpdate(SQL);
 
                 step = "Inserindo resultados exemplo";
-                SQL = "INSERT INTO results VALUES('esteves', 1, '2020-06-07');";
+                SQL = "INSERT INTO results VALUES('Esteves', 1, '2020-06-07');";
                 stmt.executeUpdate(SQL);
 
-                SQL = "INSERT INTO results VALUES('santana', 5, '2020-06-04');";
+                SQL = "INSERT INTO results VALUES('Santana', 5, '2020-06-04');";
                 stmt.executeUpdate(SQL);
 
-                SQL = "INSERT INTO results VALUES('walter', 9, '2020-06-03');";
+                SQL = "INSERT INTO results VALUES('Walter', 9, '2020-06-03');";
                 stmt.executeUpdate(SQL);
 
-                SQL = "INSERT INTO results VALUES('nelson', 7, '2020-06-11');";
+                SQL = "INSERT INTO results VALUES('Nelson', 7, '2020-06-11');";
                 stmt.executeUpdate(SQL);
 
-                SQL = "INSERT INTO results VALUES('rodriguez', 4, '2020-06-23');";
+                SQL = "INSERT INTO results VALUES('Rodriguez', 4, '2020-06-23');";
                 stmt.executeUpdate(SQL);
 
-                SQL = "INSERT INTO results VALUES('thomas', 6, '2020-06-27');";
+                SQL = "INSERT INTO results VALUES('Thomas', 6, '2020-06-27');";
                 stmt.executeUpdate(SQL);
 
-                SQL = "INSERT INTO results VALUES('ramirez', 3, '2020-06-14');";
+                SQL = "INSERT INTO results VALUES('Ramirez', 3, '2020-06-14');";
                 stmt.executeUpdate(SQL);
 
-                SQL = "INSERT INTO results VALUES('lucas', 2, '2020-06-11');";
+                SQL = "INSERT INTO results VALUES('Lucas', 2, '2020-06-11');";
                 stmt.executeUpdate(SQL);
 
-                SQL = "INSERT INTO results VALUES('marcos', 0, '2020-06-01');";
+                SQL = "INSERT INTO results VALUES('Marcos', 0, '2020-06-01');";
                 stmt.executeUpdate(SQL);
 
-                SQL = "INSERT INTO results VALUES('paulo', 8, '2020-06-18');";
+                SQL = "INSERT INTO results VALUES('Paulo', 8, '2020-06-18');";
                 stmt.executeUpdate(SQL);
             }
 

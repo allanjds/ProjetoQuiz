@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col">
                     <table class="table">
-                        <h3 class="text-center">Ultimos 10 realizados pelo usuário </h3>
+                        <h3 class="text-center">Realizados recentes pelo usuário</h3>
 
                         <thead>
                             <tr>
@@ -44,7 +44,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% for (Resultado r : Resultado.listaResultadosUsuario(usuarioLogado)) {%>
+                            <% for (Resultado r : Resultado.listaResultadosUsuario(usuario)) {%>
                             <tr>
                                 <td><%= r.getUser()%></td>
                                 <td><%= r.getResult()%></td>
@@ -57,8 +57,7 @@
                 </div>
 
                 <div class="col">
-                    <h3><%= usuario%> - Média: <%= Resultado.mediaUsuario(usuarioLogado)%></h3>
-
+                    <h3><%= usuario%> - Média: <%= Resultado.mediaUsuario(usuario)%></h3>
                 </div>
             </div>
             <% }%>
