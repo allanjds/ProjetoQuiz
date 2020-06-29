@@ -90,7 +90,33 @@ public class DbConfig implements ServletContextListener {
             stmt.executeUpdate(SQL);
 
             if (Resultado.listaResultados().isEmpty()) {
-                step = "Inserindo questoes";
+                step = "Inserindo resultados admin";
+                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-06');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-03');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 9, '2020-06-05');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 8, '2020-06-04');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-04');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-07');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 7, '2020-06-10');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 9, '2020-06-09');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 6, '2020-06-08');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-08');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 8, '2020-06-02');";
+                stmt.executeUpdate(SQL);
+                SQL = "INSERT INTO results VALUES('admin', 10, '2020-06-01');";
+                stmt.executeUpdate(SQL);
+
+                step = "Inserindo resultados exemplo";
                 SQL = "INSERT INTO results VALUES('esteves', 1, '2020-06-07');";
                 stmt.executeUpdate(SQL);
 

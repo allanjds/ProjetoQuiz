@@ -7,6 +7,16 @@
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%
+
+    String usuarioLogado = null;
+
+    if (session.getAttribute("user.login") != null) {
+        usuarioLogado = session.getAttribute("user.login").toString();
+    }
+
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,6 +29,39 @@
             <%@include file="WEB-INF/jspf/menu.jspf" %>
 
             <br>
+
+            <% if (usuarioLogado != null) {%>
+            <div class="row">
+                <div class="col">
+                    <table class="table">
+                        <h3 class="text-center">Ultimos 10 realizados pelo usuário </h3>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Usuário</th>
+                                <th scope="col">Pontuação</th>
+                                <th scope="col">Data</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (Resultado r : Resultado.listaResultadosUsuario(usuarioLogado)) {%>
+                            <tr>
+                                <td><%= r.getUser()%></td>
+                                <td><%= r.getResult()%></td>
+                                <td><%= r.getDate()%></td>
+                            </tr>
+                            <% }%>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col"></div>
+            </div>
+            <% }%>
+
+            <br>
+
+
             <div class="row">
                 <div class="col">
                     <h3 class="text-center">Ultimos 10 realizados </h3>

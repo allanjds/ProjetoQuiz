@@ -77,6 +77,34 @@ public class Resultado {
         return list;
     }
 
+    public static ArrayList<Resultado> listaResultadosUsuario(String usuario) throws Exception {
+        ArrayList<Resultado> list = new ArrayList<>();
+
+        Class.forName(DbConfig.CLASS_NAME);
+
+        Connection con = DriverManager.getConnection(DbConfig.URL);
+        String sql = "SELECT * FROM results where user = ? ORDER BY date DESC LIMIT 10";
+
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, usuario);
+
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            list.add(new Resultado(
+                    rs.getString("user"),
+                    rs.getInt("result"),
+                    rs.getString("date")
+            ));
+        }
+
+        rs.close();
+        stmt.close();
+        con.close();
+
+        return list;
+    }
+
     public static void addResultado(String user, int result) throws Exception {
         Class.forName(DbConfig.CLASS_NAME);
 
