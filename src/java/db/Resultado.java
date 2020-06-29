@@ -38,7 +38,7 @@ public class Resultado {
 
         Connection con = DriverManager.getConnection(DbConfig.URL);
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * from results order by date ASC LIMIT 10");
+        ResultSet rs = stmt.executeQuery("SELECT * from results order by date DESC LIMIT 10");
 
         while (rs.next()) {
             list.add(new Resultado(
@@ -62,7 +62,7 @@ public class Resultado {
 
         Connection con = DriverManager.getConnection(DbConfig.URL);
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM results ORDER BY result DESC LIMIT 10");
+        ResultSet rs = stmt.executeQuery("SELECT * FROM results ORDER BY result desc, date desc LIMIT 10");
 
         while (rs.next()) {
             list.add(new Resultado(
