@@ -14,30 +14,42 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <%@include file="WEB-INF/jspf/header.jspf" %>
+        <title>Home</title>
     </head>
     <body>
-        <%@include file="WEB-INF/jspf/menu.jspf" %>
+        <div class="container">
+            <%@include file="WEB-INF/jspf/menu.jspf" %>
 
-        <h2>Clique <a href="quiz.jsp">aqui</a> para iniciar seu teste de conhecimento</h2>
-
-        <hr/>
-
-        <table>
-            <h3>Ultimos 10 realizados </h3>
-            <% for (Resultado r : list) {%>
-            <p><%=r.getUser()%></p>
-            <p><%=r.getResult()%></p>
-            <hr>
+            <% if (session.getAttribute("user.name") != null) {%>
+            <h2>Clique <a href="quiz.jsp">aqui</a> para iniciar seu teste de conhecimento</h2>
             <% }%>
-        </table>
 
-        <hr/>
-        <table>
-            <h3>Seus Ultimos Resultados</h3>
-            <tbody>
-            </tbody>
-        </table>
+            <br>
+            <div class="row">
+                <div class="col">
+                    <h3>Ultimos 10 realizados </h3>
+
+                    <table>
+                        <% for (Resultado r : list) {%>
+                        <p><%=r.getUser()%></p>
+                        <p><%=r.getResult()%></p>
+                        <hr>
+                        <% }%>
+                    </table>
+                </div>
+
+                <div class="col">
+                    <h3>Top 10</h3>
+                    <table>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
     </body>
 </html>
 
