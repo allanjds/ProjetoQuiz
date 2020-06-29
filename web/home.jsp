@@ -18,10 +18,6 @@
         <div class="container">
             <%@include file="WEB-INF/jspf/menu.jspf" %>
 
-            <% if (session.getAttribute("user.name") != null) {%>
-            <h2>Clique <a href="quiz.jsp">aqui</a> para iniciar seu teste de conhecimento</h2>
-            <% }%>
-
             <br>
             <div class="row">
                 <div class="col">

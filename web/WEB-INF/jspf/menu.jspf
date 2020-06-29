@@ -19,7 +19,13 @@
 
 
 <nav class="navbar navbar-light justify-content-between">
-    <a class="navbar-brand"></a>
+
+    <a class="btn btn-outline-primary my-2 my-sm-0" href="home.jsp" type="submit">Home</a>
+
+    <% if (session.getAttribute("user.name") != null) {%>
+    <a class="btn btn-outline-info navbar-brand"  href="quiz.jsp"> Iniciar Quiz </a>
+    <% }%>
+
 
     <form class="form-inline">
         <span class="navbar-text pr-2">
