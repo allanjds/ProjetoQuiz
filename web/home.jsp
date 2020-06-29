@@ -55,7 +55,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="col"></div>
+
+                <div class="col">
+                    <h3><%= usuario%> - Média: <%= Resultado.mediaUsuario(usuarioLogado)%></h3>
+
+                </div>
             </div>
             <% }%>
 

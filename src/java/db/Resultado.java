@@ -105,6 +105,26 @@ public class Resultado {
         return list;
     }
 
+    public static int mediaUsuario(String usuario) throws Exception {
+        int media = 0;
+
+        Class.forName(DbConfig.CLASS_NAME);
+
+        Connection con = DriverManager.getConnection(DbConfig.URL);
+        String sql = "SELECT avg(result) FROM results where user = ?";
+
+        PreparedStatement stmt = con.prepareStatement(sql);
+        stmt.setString(1, usuario);
+
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            media = rs.getInt(1);
+        }
+
+        return media;
+    }
+
     public static void addResultado(String user, int result) throws Exception {
         Class.forName(DbConfig.CLASS_NAME);
 
