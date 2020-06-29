@@ -50,8 +50,24 @@
 
                 <div class="col">
                     <h3 class="text-center">Top 10</h3>
-                    <table>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Usuário</th>
+                                <th scope="col">Pontuação</th>
+                                <th scope="col">Data</th>
+                            </tr>
+                        </thead>
                         <tbody>
+                            <% for (Resultado r : Resultado.listaTop10()) {%>
+                            <tr>
+                                <td><%= r.getUser()%></td>
+                                <td><%= r.getResult()%></td>
+                                <td><%= r.getDate()%></td>
+                            </tr>
+                            <% }%>
+
                         </tbody>
                     </table>
                 </div>
