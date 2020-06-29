@@ -17,10 +17,18 @@
 %>
 
 
-<form>
-    Bem vindo, <b><%= usuario%></b>
-    <input type="submit" value="Sair" name="session.logoff"/>
-</form>
+
+<nav class="navbar navbar-light justify-content-between">
+    <a class="navbar-brand"></a>
+
+    <form class="form-inline">
+        <span class="navbar-text pr-2">
+            <%= usuario%>
+        </span>
+
+        <button class="btn btn-outline-warning my-2 my-sm-0" name="session.logoff" type="submit">Sair</button>
+    </form>
+</nav>
 
 <%if (DbConfig.exceptionMessage != null) {%>
 <h3 style="color:red"><%= DbConfig.exceptionMessage%></h3>
