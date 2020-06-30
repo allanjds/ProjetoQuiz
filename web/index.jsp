@@ -91,7 +91,7 @@
 
 
                         <button type="submit" name="login" class="btn btn-primary">Entrar</button>
-                        <button type="submit" name="notLogin" class="btn btn-info">Entrar sem login</button>
+                        <button type="submit" name="notLogin" class="btn btn-info">Entrar sem login - Visualizar Ranking</button>
                     </form>
                 </div>
 
